@@ -8,10 +8,36 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    let articles: [Article] = Article.testList
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        List(articles) { article in
+            NavigationLink(destination: ArticleView(article: article)) {
+                ArticleCell(article: article)
+            }
+        }.navigationTitle("Newsreader")
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: {
+                    print("Button was tapped")
+                }) {
+                    HStack {
+                        Image(systemName: "arrow.triangle.2.circlepath")
+                    }
+                }
+            }
+            ToolbarItem(placement: .navigationBarTrailing) {
+                NavigationLink(destination: ProfileView()) {
+                    HStack {
+                        Image(systemName: "person.circle.fill")
+                    }
+                }
+            }
+        }
     }
+    
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

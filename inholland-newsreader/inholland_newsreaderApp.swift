@@ -11,7 +11,21 @@ import SwiftUI
 struct inholland_newsreaderApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView {
+                NavigationView {
+                    ContentView()
+                }
+                .tabItem {
+                    Label("Articles", systemImage: "house.fill")
+                }
+
+                NavigationView {
+                    FavoritesView()
+                }
+                .tabItem {
+                    Label("Favorites", systemImage: "star.fill")
+                }
+            }
         }
     }
 }
