@@ -8,15 +8,31 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    let articles: [Article] = Article.testList
+    @State var articles: [Article] = []
     
     var body: some View {
         List(articles) { article in
             NavigationLink(destination: ArticleView(article: article)) {
-                ArticleCell(article: article)
+                Text(article.title)
             }
         }.navigationTitle("Newsreader")
+        .onAppear {
+            ArticleAPI.shared.getArticles { (result) in
+            switch result {
+                case .success(let response):
+                    self.articles = response.articles
+                case .failure(let error):
+                    switch error {
+                    case .urlError(let urlError):
+                        print("URL Error: \(String(describing: urlError))")
+                    case .decodingError(let decodingError):
+                        print("Decoding Error: \(String(describing: decodingError))")
+                    case .genericError(let error):
+                        print("Error: \(String(describing: error))")
+                    }
+                }
+            }
+        }
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: {
@@ -36,8 +52,6 @@ struct ContentView: View {
             }
         }
     }
-    
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
