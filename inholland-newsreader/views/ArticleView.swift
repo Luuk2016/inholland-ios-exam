@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ArticleView: View {
     let article: Article
+    @State private var articleImage: UIImage? = nil
     
     var body: some View {
         VStack {
@@ -32,6 +33,6 @@ struct ArticleView: View {
 
 struct ArticleView_Previews: PreviewProvider {
     static var previews: some View {
-        ArticleView(article: .testArticle)
+        ArticleView(article: Article.testArticle)
     }
 }
