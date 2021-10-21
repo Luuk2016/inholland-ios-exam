@@ -18,7 +18,7 @@ struct inholland_newsreaderApp: App {
                 .tabItem {
                     Label("Articles", systemImage: "house.fill")
                 }
-
+                
                 NavigationView {
                     FavoritesView()
                 }

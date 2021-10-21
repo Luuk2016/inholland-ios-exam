@@ -13,13 +13,12 @@
 		154BBD57270C9B7800EFB20E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 154BBD56270C9B7800EFB20E /* Preview Assets.xcassets */; };
 		154BBD5E270C9C3B00EFB20E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 154BBD5D270C9C3B00EFB20E /* .gitignore */; };
 		154BBD60270C9C6900EFB20E /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154BBD5F270C9C6900EFB20E /* Article.swift */; };
-		154BBD62270C9E4E00EFB20E /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154BBD61270C9E4E00EFB20E /* ArticleCell.swift */; };
-		154BBD64270CA48B00EFB20E /* ArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154BBD63270CA48B00EFB20E /* ArticleView.swift */; };
+		154BBD64270CA48B00EFB20E /* ArticleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154BBD63270CA48B00EFB20E /* ArticleDetailView.swift */; };
 		154BBD66270CBD2A00EFB20E /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154BBD65270CBD2A00EFB20E /* FavoritesView.swift */; };
-		154BBD6A270CC15400EFB20E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154BBD69270CC15400EFB20E /* ProfileView.swift */; };
 		154BBD6C270CCBD800EFB20E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154BBD6B270CCBD800EFB20E /* LoginView.swift */; };
+		1581240F2721A45C0027A450 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 1581240E2721A45C0027A450 /* KeychainAccess */; };
 		15BBF095270CD57B00D485E2 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BBF094270CD57B00D485E2 /* SignupView.swift */; };
-		15C2F99E27142C10009C568B /* ArticlesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C2F99D27142C10009C568B /* ArticlesAPI.swift */; };
+		15C2F99E27142C10009C568B /* NewsReaderAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C2F99D27142C10009C568B /* NewsReaderAPI.swift */; };
 		15C2F9A027142CAB009C568B /* GetArticlesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C2F99F27142CAB009C568B /* GetArticlesResponse.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,13 +30,11 @@
 		154BBD56270C9B7800EFB20E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		154BBD5D270C9C3B00EFB20E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		154BBD5F270C9C6900EFB20E /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
-		154BBD61270C9E4E00EFB20E /* ArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
-		154BBD63270CA48B00EFB20E /* ArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleView.swift; sourceTree = "<group>"; };
+		154BBD63270CA48B00EFB20E /* ArticleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailView.swift; sourceTree = "<group>"; };
 		154BBD65270CBD2A00EFB20E /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
-		154BBD69270CC15400EFB20E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		154BBD6B270CCBD800EFB20E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		15BBF094270CD57B00D485E2 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
-		15C2F99D27142C10009C568B /* ArticlesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesAPI.swift; sourceTree = "<group>"; };
+		15C2F99D27142C10009C568B /* NewsReaderAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsReaderAPI.swift; sourceTree = "<group>"; };
 		15C2F99F27142CAB009C568B /* GetArticlesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetArticlesResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -46,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1581240F2721A45C0027A450 /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,8 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				154BBD6D270CCFAF00EFB20E /* user */,
-				154BBD63270CA48B00EFB20E /* ArticleView.swift */,
-				154BBD61270C9E4E00EFB20E /* ArticleCell.swift */,
+				154BBD63270CA48B00EFB20E /* ArticleDetailView.swift */,
 				154BBD65270CBD2A00EFB20E /* FavoritesView.swift */,
 			);
 			path = views;
@@ -114,7 +111,6 @@
 		154BBD6D270CCFAF00EFB20E /* user */ = {
 			isa = PBXGroup;
 			children = (
-				154BBD69270CC15400EFB20E /* ProfileView.swift */,
 				154BBD6B270CCBD800EFB20E /* LoginView.swift */,
 				15BBF094270CD57B00D485E2 /* SignupView.swift */,
 			);
@@ -124,7 +120,7 @@
 		15C2F99C27142C03009C568B /* service */ = {
 			isa = PBXGroup;
 			children = (
-				15C2F99D27142C10009C568B /* ArticlesAPI.swift */,
+				15C2F99D27142C10009C568B /* NewsReaderAPI.swift */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -145,6 +141,9 @@
 			dependencies = (
 			);
 			name = "inholland-newsreader";
+			packageProductDependencies = (
+				1581240E2721A45C0027A450 /* KeychainAccess */,
+			);
 			productName = "inholland-newsreader";
 			productReference = 154BBD4C270C9B7500EFB20E /* inholland-newsreader.app */;
 			productType = "com.apple.product-type.application";
@@ -173,6 +172,9 @@
 				Base,
 			);
 			mainGroup = 154BBD43270C9B7500EFB20E;
+			packageReferences = (
+				1581240D2721A45C0027A450 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+			);
 			productRefGroup = 154BBD4D270C9B7500EFB20E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -202,13 +204,11 @@
 			files = (
 				15BBF095270CD57B00D485E2 /* SignupView.swift in Sources */,
 				15C2F9A027142CAB009C568B /* GetArticlesResponse.swift in Sources */,
-				154BBD62270C9E4E00EFB20E /* ArticleCell.swift in Sources */,
 				154BBD52270C9B7500EFB20E /* ContentView.swift in Sources */,
-				15C2F99E27142C10009C568B /* ArticlesAPI.swift in Sources */,
+				15C2F99E27142C10009C568B /* NewsReaderAPI.swift in Sources */,
 				154BBD66270CBD2A00EFB20E /* FavoritesView.swift in Sources */,
-				154BBD64270CA48B00EFB20E /* ArticleView.swift in Sources */,
+				154BBD64270CA48B00EFB20E /* ArticleDetailView.swift in Sources */,
 				154BBD50270C9B7500EFB20E /* inholland_newsreaderApp.swift in Sources */,
-				154BBD6A270CC15400EFB20E /* ProfileView.swift in Sources */,
 				154BBD6C270CCBD800EFB20E /* LoginView.swift in Sources */,
 				154BBD60270C9C6900EFB20E /* Article.swift in Sources */,
 			);
@@ -268,7 +268,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -323,7 +323,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -338,15 +338,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "inholland-newsreader/inholland-newsreader.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"inholland-newsreader/Preview Content\"";
-				DEVELOPMENT_TEAM = 6QRV3HD79G;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -359,7 +361,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -368,15 +370,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "inholland-newsreader/inholland-newsreader.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"inholland-newsreader/Preview Content\"";
-				DEVELOPMENT_TEAM = 6QRV3HD79G;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -389,7 +393,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -415,6 +419,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1581240D2721A45C0027A450 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
+			requirement = {
+				kind = exactVersion;
+				version = 4.2.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1581240E2721A45C0027A450 /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1581240D2721A45C0027A450 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 154BBD44270C9B7500EFB20E /* Project object */;
 }

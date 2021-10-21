@@ -8,46 +8,56 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var newsReaderAPI: NewsReaderAPI = NewsReaderAPI.shared
     @State var articles: [Article] = []
     
     var body: some View {
         List(articles) { article in
-            NavigationLink(destination: ArticleView(article: article)) {
+            NavigationLink(destination: ArticleDetailView(article: article)) {
                 Text(article.title)
             }
         }.navigationTitle("Newsreader")
         .onAppear {
-            ArticleAPI.shared.getArticles { (result) in
-            switch result {
-                case .success(let response):
-                    self.articles = response.articles
-                case .failure(let error):
-                    switch error {
-                    case .urlError(let urlError):
-                        print("URL Error: \(String(describing: urlError))")
-                    case .decodingError(let decodingError):
-                        print("Decoding Error: \(String(describing: decodingError))")
-                    case .genericError(let error):
-                        print("Error: \(String(describing: error))")
-                    }
-                }
-            }
+            getArticles()
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: {
-                    print("Button was tapped")
+                    getArticles()
                 }) {
-                    HStack {
-                        Image(systemName: "arrow.triangle.2.circlepath")
+                    Text("Refresh")
+                }
+            }
+            
+            ToolbarItem(placement: .navigationBarTrailing) {
+                if (newsReaderAPI.isAuthenticated) {
+                    Button(action: {
+                        newsReaderAPI.logout()
+                    }) {
+                        Text("Logout")
+                    }
+                } else {
+                    NavigationLink(destination: LoginView()) {
+                        Text("Login")
                     }
                 }
             }
-            ToolbarItem(placement: .navigationBarTrailing) {
-                NavigationLink(destination: ProfileView()) {
-                    HStack {
-                        Image(systemName: "person.circle.fill")
-                    }
+        }
+    }
+    
+    func getArticles() {
+        NewsReaderAPI.shared.getArticles { (result) in
+        switch result {
+            case .success(let response):
+                self.articles = response.articles
+            case .failure(let error):
+                switch error {
+                case .urlError(let urlError):
+                    print("URL Error: \(String(describing: urlError))")
+                case .decodingError(let decodingError):
+                    print("Decoding Error: \(String(describing: decodingError))")
+                case .genericError(let error):
+                    print("Error: \(String(describing: error))")
                 }
             }
         }
