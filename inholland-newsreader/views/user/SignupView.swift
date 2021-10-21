@@ -13,13 +13,8 @@ struct SignupView: View {
     
     var body: some View {
         VStack {
-            Text("Hello!")
-                .font(.largeTitle)
-                .fontWeight(.semibold)
-                .padding(.bottom, 20)
-            
-            Text("Please signup below!")
-            
+            Spacer()
+                        
             TextField("Username", text: $username)
                 .padding()
                 .cornerRadius(5.0)
@@ -32,11 +27,16 @@ struct SignupView: View {
                 .textFieldStyle(.roundedBorder)
                 .padding(.horizontal)
             
+            Button("Signup", action: {
+                print("Signup was tapped!")
+            })
+            
+            Spacer()
+            
+            Text("Already have an account?")
+            
             NavigationLink(destination: LoginView()) {
-                Text("SIGNUP")
-                    .font(.headline)
-                    .padding()
-                    .cornerRadius(15.0)
+                Text("Click here")
             }
         }.navigationTitle("Signup")
     }

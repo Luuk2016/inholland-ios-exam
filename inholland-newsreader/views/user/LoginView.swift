@@ -10,16 +10,12 @@ import SwiftUI
 struct LoginView: View {
     @State var username: String = ""
     @State var password: String = ""
+    @State var isLoginErrorAlertPresented: Bool = false
     
     var body: some View {
         VStack {
-            Text("Hello!")
-                .font(.largeTitle)
-                .fontWeight(.semibold)
-                .padding(.bottom, 20)
-            
-            Text("Please login below!")
-            
+            Spacer()
+                        
             TextField("Username", text: $username)
                 .padding()
                 .cornerRadius(5.0)
@@ -31,14 +27,22 @@ struct LoginView: View {
                 .cornerRadius(5.0)
                 .textFieldStyle(.roundedBorder)
                 .padding(.horizontal)
+                        
+            Button("Login", action: {
+                isLoginErrorAlertPresented.toggle()
+            })
             
-            NavigationLink(destination: LoginView()) {
-                Text("LOGIN")
-                    .font(.headline)
-                    .padding()
-                    .cornerRadius(15.0)
+            Spacer()
+            
+            Text("Don't have an account yet?")
+            
+            NavigationLink(destination: SignupView()) {
+                Text("Click here")
             }
         }.navigationTitle("Login")
+        .alert(isPresented: $isLoginErrorAlertPresented) {
+            Alert(title: Text("Error"), message: Text("Couldn't Login"), dismissButton: .default(Text("OK")))
+        }
     }
 }
 
