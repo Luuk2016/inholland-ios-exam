@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct inholland_newsreaderApp: App {
+    @ObservedObject var newsReaderAPI: NewsReaderAPI = NewsReaderAPI.shared
+    
     var body: some Scene {
         WindowGroup {
             TabView {
@@ -16,7 +18,7 @@ struct inholland_newsreaderApp: App {
                     ContentView()
                 }
                 .tabItem {
-                    Label("Articles", systemImage: "house.fill")
+                    Label("Home", systemImage: "house.fill")
                 }
                 
                 NavigationView {

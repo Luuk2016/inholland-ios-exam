@@ -12,6 +12,10 @@ struct LoginView: View {
     @State var password: String = ""
     @State var isLoginErrorAlertPresented: Bool = false
     
+    var isFormValid: Bool {
+        return username.count >= 3 && password.count >= 3
+    }
+    
     var body: some View {
         VStack {
             Spacer()
@@ -29,8 +33,8 @@ struct LoginView: View {
                 .padding(.horizontal)
                         
             Button("Login", action: {
-                isLoginErrorAlertPresented.toggle()
-            })
+                NewsReaderAPI.shared.login(username: self.username, password: self.password)
+            }).disabled(isFormValid == false)
             
             Spacer()
             

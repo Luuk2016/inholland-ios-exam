@@ -11,6 +11,10 @@ struct SignupView: View {
     @State var username: String = ""
     @State var password: String = ""
     
+    var isFormValid: Bool {
+        return username.count >= 3 && password.count >= 3
+    }
+    
     var body: some View {
         VStack {
             Spacer()
@@ -28,8 +32,8 @@ struct SignupView: View {
                 .padding(.horizontal)
             
             Button("Signup", action: {
-                print("Signup was tapped!")
-            })
+                NewsReaderAPI.shared.signup(username: self.username, password: self.password)
+            }).disabled(isFormValid == false)
             
             Spacer()
             

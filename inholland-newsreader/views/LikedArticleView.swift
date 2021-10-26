@@ -1,18 +1,17 @@
 //
-//  ArticleDetailView.swift
+//  LikedArticleView.swift
 //  inholland-newsreader
 //
-//  Created by Luuk Kenselaar on 05/10/2021.
+//  Created by Luuk Kenselaar on 24/10/2021.
 //
 
 import SwiftUI
 
-struct ArticleDetailView: View {
+struct LikedArticleView: View {
     @ObservedObject var newsReaderAPI: NewsReaderAPI = NewsReaderAPI.shared
     @Environment(\.openURL) var openURL
     let article: Article
     @State private var articleImage: UIImage? = nil
-    @State private var showNotLoggedInAlert: Bool = false
     
     var body: some View {
         ScrollView {
@@ -57,19 +56,13 @@ struct ArticleDetailView: View {
             Button("Open in browser", action: {
                 openBrowser()
             })
-        }.navigationTitle("Article")
+        }.navigationTitle("Liked article")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {
-                    if (newsReaderAPI.isAuthenticated) {
-                        likeArticle(articleID: article.identifier)
-                    } else {
-                        showNotLoggedInAlert = true
-                    }
+                    unlikeArticle(articleID: article.identifier)
                 }) {
-                    Image(systemName: "heart.fill")
-                }.alert(isPresented: $showNotLoggedInAlert) {
-                    Alert(title: Text("Error"), message: Text("You need to be logged in to like articles"), dismissButton: .default(Text("OK")))
+                    Text("Unlike article")
                 }
             }
         }
@@ -82,13 +75,13 @@ struct ArticleDetailView: View {
         openURL(url)
     }
     
-    func likeArticle(articleID: Int) {
-        newsReaderAPI.likeArticle(articleID: articleID)
+    func unlikeArticle(articleID: Int) {
+        newsReaderAPI.unlikeArticle(articleID: articleID)
     }
 }
 
-struct ArticleDetailView_Previews: PreviewProvider {
+struct LikedArticleView_Previews: PreviewProvider {
     static var previews: some View {
-        ArticleDetailView(article: Article.testArticle)
+        LikedArticleView(article: Article.testArticle)
     }
 }

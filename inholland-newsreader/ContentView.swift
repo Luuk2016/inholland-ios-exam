@@ -10,11 +10,12 @@ import SwiftUI
 struct ContentView: View {
     @ObservedObject var newsReaderAPI: NewsReaderAPI = NewsReaderAPI.shared
     @State var articles: [Article] = []
-    
+    @State var articleImage: UIImage? = nil
+
     var body: some View {
         List(articles) { article in
             NavigationLink(destination: ArticleDetailView(article: article)) {
-                Text(article.title)
+                ArticleCell(article: article)
             }
         }.navigationTitle("Newsreader")
         .onAppear {
